@@ -49,19 +49,29 @@ int main() {
 
 vector<float> bubbleSort(vector<float> numbers, SortDirection direction) {
     
+    //early breaking optimization
+    bool didSwap;
+
     switch (direction) {
         case Ascending: 
             
             for (int i = 0; i < numbers.size() - 1; i++) {
+                didSwap = false;
                 cout << "Iteration: " << i << endl;
                 for (int j = 0; j < numbers.size() - i - 1; j++) {
                     if (numbers[j] > numbers[j+1]) {
                         numbers = swap(numbers, j, j+1);
+                        didSwap = true;
                     }
                     cout << "Step: " << j << endl;
 
 
                     printNumbers(numbers);
+                }
+
+                // a whole iteration without a swap means it is done
+                if (!didSwap) {
+                    break;
                 }
                 
             }

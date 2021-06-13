@@ -33,10 +33,26 @@ int main() {
     }
     else {
         cout << "Incorrect Input";
+        return 0;
     }
 
+    cout << "Ascending or Descending? Enter A/D" << endl;
+    cin >> rawInput;
+
+    if (rawInput == "A") {
+        numbers = bubbleSort(numbers, Ascending);
+    }
+    else if (rawInput == "D") {
+        numbers = bubbleSort(numbers, Descending);
+    }
+    else {
+        cout << "Incorrect Input";
+        return 0;
+    }
+
+
     // passing by value to make things simple
-    numbers = bubbleSort(numbers, Ascending);
+    
     
 
     cout << "Result:" << endl;
